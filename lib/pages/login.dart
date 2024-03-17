@@ -5,6 +5,7 @@ import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
 import 'package:zootopia/config.dart';
 import 'package:zootopia/models/login_request_model.dart';
+import 'package:zootopia/pages/forget_password_page.dart';
 import 'package:zootopia/pages/register_page.dart';
 import 'package:zootopia/services/api_service.dart';
 import 'package:zootopia/shared/header.dart';
@@ -152,7 +153,14 @@ class _LoginState extends State<Login> {
                         color: Colors.white,
                         decoration: TextDecoration.underline,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ForgetPassword(),
+                              ));
+                        },
                     ),
                   ],
                 ),
