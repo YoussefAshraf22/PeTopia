@@ -5,6 +5,7 @@ import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
 import 'package:zootopia/config.dart';
 import 'package:zootopia/models/register_request_model.dart';
+import 'package:zootopia/pages/login.dart';
 import 'package:zootopia/services/api_service.dart';
 import 'package:zootopia/shared/header.dart';
 import 'package:zootopia/shared/line.dart';
@@ -213,7 +214,7 @@ class _RegisterPageState extends State<RegisterPage> {
           Center(
             child: RichText(
                 text: TextSpan(
-                    text: 'Have oleardy an account? ',
+                    text: 'Have an account? ',
                     style: const TextStyle(color: Colors.grey, fontSize: 16),
                     children: [
                   TextSpan(
@@ -225,7 +226,11 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Login(),
+                              ));
                         })
                 ])),
           ),
