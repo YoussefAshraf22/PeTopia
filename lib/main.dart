@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zootopia/pages/home_page.dart';
-import 'package:zootopia/pages/login_page.dart';
+import 'package:zootopia/pages/login.dart';
 import 'package:zootopia/pages/register_page.dart';
 
 void main() {
@@ -24,9 +24,9 @@ class MyApp extends StatelessWidget {
       //add routing routes for navigation pages
       routes: {
         //start with the home page
-        '/': (context) => const LoginPage(),
+        '/': (context) => const Login(),
         '/home': (context) => const HomePage(),
-        'login': (context) => const LoginPage(),
+        'login': (context) => const Login(),
         '/register': (context) => const RegisterPage(),
       },
     );
