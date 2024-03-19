@@ -2,8 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
-import 'package:zootopia/pages/register_page.dart';
-import 'package:zootopia/pages/reset_password_page.dart';
+import 'package:zootopia/pages/Authentication/otp_page.dart';
+import 'package:zootopia/pages/Authentication/register_page.dart';
 import 'package:zootopia/shared/header.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -12,6 +12,7 @@ class ForgetPassword extends StatefulWidget {
   @override
   State<ForgetPassword> createState() => _ForgetPasswordState();
 }
+
 String? email;
 
 class _ForgetPasswordState extends State<ForgetPassword> {
@@ -67,15 +68,18 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 height: 20,
               ),
               FormHelper.inputFieldWidget(
-                  context, 'Enter your email', 'Enter your email',
+                  context,
+                  'Enter your email',
+                  'Enter your email',
                   (onValidateVal) {
-                if (onValidateVal.isEmpty) {
-                  return 'Username can\'t be empty.';
-                }
-          
-                return null;
-              }, (onSavedVal) {},
-              onChange: (value) {
+                    if (onValidateVal.isEmpty) {
+                      return 'Username can\'t be empty.';
+                    }
+
+                    return null;
+                  },
+                  (onSavedVal) {},
+                  onChange: (value) {
                     setState(() {
                       email = value;
                     });
@@ -99,7 +103,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ResetPassword(),
+                        builder: (context) => const OTPForm(),
                       ));
                 },
                 width: 300,
@@ -115,7 +119,8 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 child: RichText(
                     text: TextSpan(
                         text: 'Don\'t have an account? ',
-                        style: const TextStyle(color: Colors.grey, fontSize: 16),
+                        style:
+                            const TextStyle(color: Colors.grey, fontSize: 16),
                         children: [
                       TextSpan(
                           text: 'SignUp',

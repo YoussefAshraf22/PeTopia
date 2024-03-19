@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zootopia/pages/home_page.dart';
-import 'package:zootopia/pages/login.dart';
-import 'package:zootopia/pages/register_page.dart';
+import 'package:zootopia/pages/Authentication/login.dart';
+import 'package:zootopia/pages/Authentication/register_page.dart';
 
 void main() {
   runApp(const MyApp());

@@ -5,7 +5,7 @@ import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
 import 'package:zootopia/config.dart';
 import 'package:zootopia/models/register_request_model.dart';
-import 'package:zootopia/pages/login.dart';
+import 'package:zootopia/pages/Authentication/login.dart';
 import 'package:zootopia/services/api_service.dart';
 import 'package:zootopia/shared/header.dart';
 import 'package:zootopia/shared/line.dart';
