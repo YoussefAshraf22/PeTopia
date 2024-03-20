@@ -17,14 +17,16 @@ class MyApp extends StatelessWidget {
       title: 'Zootopia',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
           primarySwatch: Colors.blue),
 
       //add routing routes for navigation pages
       routes: {
         //start with the home page
-        '/': (context) => const Login(),
+        '/': (context) => const HomePage(),
+
+        // '/': (context) => const Login(),
         '/home': (context) => const HomePage(),
         'login': (context) => const Login(),
         '/register': (context) => const RegisterPage(),
