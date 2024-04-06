@@ -30,22 +30,36 @@ class ProfilePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Center(
-                  child: SizedBox(
-                    height: 200,
-                    width: 200,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: const Image(
-                        image: AssetImage(
-                          'assets/images/logo2.jpg',
+                Stack(
+                  children: [
+                    Container(
+                      height: 140,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          image: const DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/profile_cover.webp'),
+                              fit: BoxFit.cover),
+                          borderRadius: BorderRadius.circular(25)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 50, bottom: 20),
+                      child: Center(
+                        child: SizedBox(
+                          height: 150,
+                          width: 150,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(100),
+                            child: const Image(
+                              image: AssetImage(
+                                'assets/images/logo2.jpg',
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
+                  ],
                 ),
                 const Text(
                   'Youusef',
