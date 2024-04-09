@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:snippet_coder_utils/hex_color.dart';
 
 import '../../shared/show_Image_picker.dart';
 
@@ -23,16 +23,10 @@ class _EditProfileState extends State<EditProfile> {
     String email = "";
     String password = "";
     String? phone;
-    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Profile'),
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: Icon(isDark ? LineAwesome.sun : LineAwesome.moon))
-          ],
         ),
         body: SingleChildScrollView(
             child: Column(children: [
@@ -47,7 +41,7 @@ class _EditProfileState extends State<EditProfile> {
                 top: 5,
                 right: 5,
                 child: CircleAvatar(
-                  backgroundColor: Colors.yellow,
+                  backgroundColor: HexColor("#00347D"),
                   radius: 18,
                   child: IconButton(
                     onPressed: () {
@@ -56,10 +50,7 @@ class _EditProfileState extends State<EditProfile> {
                           imageCamera: pickCoverCamera,
                           imageGallery: pickCoverGallery);
                     },
-                    icon: const Icon(
-                      Icons.edit,
-                      size: 18,
-                    ),
+                    icon: const Icon(Icons.edit, size: 18, color: Colors.white),
                   ),
                 )),
             Padding(
@@ -94,7 +85,7 @@ class _EditProfileState extends State<EditProfile> {
                 bottom: 8,
                 right: 120,
                 child: CircleAvatar(
-                  backgroundColor: Colors.yellow,
+                  backgroundColor: HexColor("#00347D"),
                   radius: 20,
                   child: IconButton(
                     onPressed: () {
@@ -103,7 +94,7 @@ class _EditProfileState extends State<EditProfile> {
                           imageCamera: pickImageCamera,
                           imageGallery: pickImageGallery);
                     },
-                    icon: const Icon(Icons.edit),
+                    icon: const Icon(Icons.edit, color: Colors.white),
                   ),
                 ))
           ]),
@@ -124,7 +115,8 @@ class _EditProfileState extends State<EditProfile> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)),
                         label: const Text('Full Name'),
-                        prefixIcon: const Icon(Icons.person)),
+                        prefixIcon:
+                            Icon(Icons.person, color: HexColor("#00347D"))),
                   ),
                   const SizedBox(
                     height: 10,
@@ -138,7 +130,8 @@ class _EditProfileState extends State<EditProfile> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)),
                         label: const Text('Email'),
-                        prefixIcon: const Icon(Icons.email)),
+                        prefixIcon:
+                            Icon(Icons.email, color: HexColor("#00347D"))),
                   ),
                   const SizedBox(
                     height: 10,
@@ -151,7 +144,8 @@ class _EditProfileState extends State<EditProfile> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)),
                         label: const Text('Password'),
-                        prefixIcon: const Icon(Icons.lock)),
+                        prefixIcon:
+                            Icon(Icons.lock, color: HexColor("#00347D"))),
                   ),
                   const SizedBox(
                     height: 10,
@@ -165,7 +159,8 @@ class _EditProfileState extends State<EditProfile> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)),
                         label: const Text('Phone Number'),
-                        prefixIcon: const Icon(Icons.phone_iphone_rounded)),
+                        prefixIcon: Icon(Icons.phone_iphone_rounded,
+                            color: HexColor("#00347D"))),
                   ),
                 ],
               ),
@@ -181,7 +176,7 @@ class _EditProfileState extends State<EditProfile> {
               height: 40,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor: HexColor("#00347D"),
                     side: BorderSide.none,
                   ),
                   onPressed: () {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
 import 'package:zootopia/pages/Authentication/forget_password_page.dart';
@@ -14,7 +13,7 @@ class OTPForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: HexColor("#283B71"),
+        backgroundColor: Color.fromRGBO(250, 192, 113, 1),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -24,11 +23,11 @@ class OTPForm extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              const Center(
+              Center(
                 child: Text(
                   'Verification Code',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: HexColor("#00347D"),
                       fontSize: 25,
                       fontWeight: FontWeight.bold),
                 ),
@@ -40,7 +39,7 @@ class OTPForm extends StatelessWidget {
                 child: Text(
                   'Please enter the verification code sent to your email. \n If the verification code doesn\'t send, click resend ',
                   style: TextStyle(
-                      color: Colors.grey,
+                      color: Colors.blueGrey,
                       fontSize: 15,
                       fontWeight: FontWeight.w500),
                 ),
@@ -78,7 +77,7 @@ class OTPForm extends StatelessWidget {
                               ));
                         },
                         width: 300,
-                        btnColor: HexColor("283B71"),
+                        btnColor: HexColor("#00347D"),
                         borderColor: Colors.white,
                         txtColor: Colors.white,
                         borderRadius: 10,
@@ -101,7 +100,7 @@ class OTPForm extends StatelessWidget {
                               ));
                         },
                         width: 300,
-                        btnColor: HexColor("283B71"),
+                        btnColor: HexColor("#00347D"),
                         borderColor: Colors.white,
                         txtColor: Colors.white,
                         borderRadius: 10,

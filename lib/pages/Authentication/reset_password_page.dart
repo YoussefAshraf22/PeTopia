@@ -23,7 +23,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            backgroundColor: HexColor("#283B71"),
+            backgroundColor: Color.fromRGBO(250, 192, 113, 1),
             body: SingleChildScrollView(
               child: Column(children: [
                 Header(
@@ -32,11 +32,11 @@ class _ResetPasswordState extends State<ResetPassword> {
                 const SizedBox(
                   height: 40,
                 ),
-                const Center(
+                Center(
                   child: Text(
                     'Reset Password',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: HexColor("#00347D"),
                         fontSize: 25,
                         fontWeight: FontWeight.bold),
                   ),
@@ -48,20 +48,20 @@ class _ResetPasswordState extends State<ResetPassword> {
                   child: Text(
                     'Please enter your new password',
                     style: TextStyle(
-                        color: Colors.grey,
+                        color: Colors.blueGrey,
                         fontSize: 15,
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 25,
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(right: 180),
                   child: Text(
                     'New Password',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: HexColor("#00347D"),
                         fontSize: 18,
                         fontWeight: FontWeight.w600),
                   ),
@@ -90,11 +90,11 @@ class _ResetPasswordState extends State<ResetPassword> {
                   },
                   initialValue: "",
                   obscureText: hidePassword,
-                  borderFocusColor: Colors.white,
-                  prefixIconColor: Colors.white.withOpacity(0.7),
-                  borderColor: Colors.white,
-                  textColor: Colors.white,
-                  hintColor: Colors.white,
+                  borderFocusColor: HexColor("#00347D"),
+                  prefixIconColor: HexColor("#00347D"),
+                  borderColor: HexColor("#00347D"),
+                  textColor: HexColor("#00347D"),
+                  hintColor: HexColor("#00347D"),
                   borderRadius: 10,
                   prefixIcon: const Icon(Icons.lock),
                   showPrefixIcon: true,
@@ -104,7 +104,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         hidePassword = !hidePassword;
                       });
                     },
-                    color: Colors.white.withOpacity(0.7),
+                    color: HexColor("#00347D"),
                     icon: Icon(
                       hidePassword ? Icons.visibility_off : Icons.visibility,
                     ),
@@ -134,11 +134,11 @@ class _ResetPasswordState extends State<ResetPassword> {
                   },
                   initialValue: "",
                   obscureText: hidePassword,
-                  borderFocusColor: Colors.white,
-                  prefixIconColor: Colors.white.withOpacity(0.7),
-                  borderColor: Colors.white,
-                  textColor: Colors.white,
-                  hintColor: Colors.white,
+                  borderFocusColor: HexColor("#00347D"),
+                  prefixIconColor: HexColor("#00347D"),
+                  borderColor: HexColor("#00347D"),
+                  textColor: HexColor("#00347D"),
+                  hintColor: HexColor("#00347D"),
                   borderRadius: 10,
                   prefixIcon: const Icon(Icons.lock),
                   showPrefixIcon: true,
@@ -148,7 +148,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         hidePassword = !hidePassword;
                       });
                     },
-                    color: Colors.white.withOpacity(0.7),
+                    color: HexColor("#00347D"),
                     icon: Icon(
                       hidePassword ? Icons.visibility_off : Icons.visibility,
                     ),
@@ -192,18 +192,10 @@ class _ResetPasswordState extends State<ResetPassword> {
                               ));
                         },
                       );
-                      // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      //     backgroundColor: Colors.green,
-                      //     content: Text('Password match,')));
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => const Login(),
-                      //     ));
                     }
                   },
                   width: 300,
-                  btnColor: HexColor("283B71"),
+                  btnColor: HexColor("#00347D"),
                   borderColor: Colors.white,
                   txtColor: Colors.white,
                   borderRadius: 10,

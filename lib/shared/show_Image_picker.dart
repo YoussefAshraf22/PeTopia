@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snippet_coder_utils/hex_color.dart';
 
 class ShowImagePicker extends StatelessWidget {
   const ShowImagePicker({super.key});
@@ -14,7 +15,7 @@ class ShowImagePicker extends StatelessWidget {
       required Function imageCamera}) {
     showModalBottomSheet(
       useSafeArea: true,
-      backgroundColor: Colors.yellow,
+      backgroundColor: HexColor("#00347D"),
       context: context,
       builder: (context) {
         return SizedBox(
@@ -31,8 +32,13 @@ class ShowImagePicker extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 60),
                     child: Column(
                       children: [
-                        Icon(Icons.photo_library_rounded, size: 25),
-                        Text('Gallery', style: TextStyle(fontSize: 20))
+                        Icon(
+                          Icons.photo_library_rounded,
+                          size: 25,
+                          color: Colors.white,
+                        ),
+                        Text('Gallery',
+                            style: TextStyle(fontSize: 20, color: Colors.white))
                       ],
                     ),
                   ),
@@ -47,13 +53,10 @@ class ShowImagePicker extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 60),
                     child: Column(
                       children: [
-                        Icon(
-                          Icons.camera_alt,
-                          size: 25,
-                        ),
+                        Icon(Icons.camera_alt, size: 25, color: Colors.white),
                         Text(
                           'Camera',
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 20, color: Colors.white),
                         )
                       ],
                     ),

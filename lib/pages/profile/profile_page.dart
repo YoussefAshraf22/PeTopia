@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
+import 'package:snippet_coder_utils/hex_color.dart';
 import 'package:zootopia/pages/profile/edit_profile.dart';
 import 'package:zootopia/shared/profile_menu.dart';
 
@@ -9,16 +9,10 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //dark mood
-    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(isDark ? LineAwesome.sun : LineAwesome.moon))
-        ],
       ),
       body: SingleChildScrollView(
           child: Padding(
@@ -69,30 +63,27 @@ class ProfilePage extends StatelessWidget {
                   'ussef@gamil.com',
                   style: TextStyle(
                       fontSize: 15,
-                      color: Colors.grey,
+                      color: Colors.blueGrey,
                       fontWeight: FontWeight.w400),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                SizedBox(
-                  width: 250,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          side: BorderSide.none,
-                          shape: const StadiumBorder()),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const EditProfile(),
-                            ));
-                      },
-                      child: const Text(
-                        'Edite',
-                        style: TextStyle(color: Colors.white),
-                      )),
+                Center(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const EditProfile()));
+                    },
+                    child: Text('Edite',
+                        style: TextStyle(
+                          color: HexColor("#ed8900"),
+                          fontSize: 20,
+                          decoration: TextDecoration.underline,
+                        )),
+                  ),
                 ),
                 const SizedBox(
                   height: 25,
