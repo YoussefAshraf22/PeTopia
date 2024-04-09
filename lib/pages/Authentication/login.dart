@@ -5,8 +5,8 @@ import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
 import 'package:zootopia/config.dart';
 import 'package:zootopia/models/login_request_model.dart';
-import 'package:zootopia/pages/forget_password_page.dart';
-import 'package:zootopia/pages/register_page.dart';
+import 'package:zootopia/pages/Authentication/forget_password_page.dart';
+import 'package:zootopia/pages/Authentication/register_page.dart';
 import 'package:zootopia/services/api_service.dart';
 import 'package:zootopia/shared/header.dart';
 import 'package:zootopia/shared/line.dart';
@@ -38,11 +38,11 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: HexColor("#283B71"),
+        backgroundColor: Color.fromRGBO(250, 192, 113, 1),
         body: ProgressHUD(
           //check from the API call
           inAsyncCall: isAPICallProcess,
-          opacity: 0.3,
+          // opacity: 0.3,
           //to match the same key
           key: UniqueKey(),
           child: Form(
@@ -63,14 +63,14 @@ class _LoginState extends State<Login> {
           Header(
             img: "assets/images/cover.jpeg",
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(left: 20, bottom: 30, top: 50),
             child: Text(
               "Login",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 30,
-                color: Colors.white,
+                color: HexColor("#00347D"),
               ),
             ),
           ),
@@ -89,11 +89,11 @@ class _LoginState extends State<Login> {
                     },
                 initialValue: "",
                 obscureText: false,
-                borderFocusColor: Colors.white,
-                prefixIconColor: Colors.white.withOpacity(0.7),
-                borderColor: Colors.white,
-                textColor: Colors.white,
-                hintColor: Colors.white,
+                borderFocusColor: HexColor("#00347D"),
+                prefixIconColor: HexColor("#00347D"),
+                borderColor: HexColor("#00347D"),
+                textColor: HexColor("#00347D"),
+                hintColor: HexColor("#00347D"),
                 borderRadius: 10,
                 prefixIcon: const Icon(Icons.person),
                 showPrefixIcon: true),
@@ -116,11 +116,11 @@ class _LoginState extends State<Login> {
               },
               initialValue: "",
               obscureText: hidePassword,
-              borderFocusColor: Colors.white,
-              prefixIconColor: Colors.white.withOpacity(0.7),
-              borderColor: Colors.white,
-              textColor: Colors.white,
-              hintColor: Colors.white,
+              borderFocusColor: HexColor("#00347D"),
+              prefixIconColor: HexColor("#00347D"),
+              borderColor: HexColor("#00347D"),
+              textColor: HexColor("#00347D"),
+              hintColor: HexColor("#00347D"),
               borderRadius: 10,
               prefixIcon: const Icon(Icons.lock),
               showPrefixIcon: true,
@@ -130,7 +130,7 @@ class _LoginState extends State<Login> {
                     hidePassword = !hidePassword;
                   });
                 },
-                color: Colors.white.withOpacity(0.7),
+                color: HexColor("#00347D"),
                 icon: Icon(
                   hidePassword ? Icons.visibility_off : Icons.visibility,
                 ),
@@ -145,12 +145,13 @@ class _LoginState extends State<Login> {
               ),
               child: RichText(
                 text: TextSpan(
-                  style: const TextStyle(color: Colors.grey, fontSize: 14.0),
+                  style:
+                      const TextStyle(color: Colors.blueGrey, fontSize: 14.0),
                   children: <TextSpan>[
                     TextSpan(
                       text: 'Forget Password ?',
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: Colors.blueGrey,
                         decoration: TextDecoration.underline,
                       ),
                       recognizer: TapGestureRecognizer()
@@ -168,54 +169,52 @@ class _LoginState extends State<Login> {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 30,
           ),
           Center(
-            child: FormHelper.submitButton(
-              "Login",
-              () {
-                if (validateAndSave()) {
-                  setState(() {
-                    isAPICallProcess = true;
-                  });
+            child: FormHelper.submitButton("Login", () {
+              if (validateAndSave()) {
+                setState(() {
+                  isAPICallProcess = true;
+                });
 
-                  LoginRequestModel model = LoginRequestModel(
-                    username: userName,
-                    password: userPassword,
-                  );
+                LoginRequestModel model = LoginRequestModel(
+                  username: userName,
+                  password: userPassword,
+                );
 
-                  APIService.login(model).then(
-                    (response) {
-                      setState(() {
-                        isAPICallProcess = false;
-                      });
+                APIService.login(model).then(
+                  (response) {
+                    setState(() {
+                      isAPICallProcess = false;
+                    });
 
-                      if (response) {
-                        Navigator.pushNamedAndRemoveUntil(
-                          context,
-                          '/home',
-                          (route) => false,
-                        );
-                      } else {
-                        FormHelper.showSimpleAlertDialog(
-                          context,
-                          Config.appName,
-                          "Invalid Username/Password !!",
-                          "OK",
-                          () {
-                            Navigator.of(context).pop();
-                          },
-                        );
-                      }
-                    },
-                  );
-                }
-              },
-              btnColor: HexColor("283B71"),
-              borderColor: Colors.white,
-              txtColor: Colors.white,
-              borderRadius: 10,
-            ),
+                    if (response) {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        '/home',
+                        (route) => false,
+                      );
+                    } else {
+                      FormHelper.showSimpleAlertDialog(
+                        context,
+                        Config.appName,
+                        "Invalid Username/Password !!",
+                        "OK",
+                        () {
+                          Navigator.of(context).pop();
+                        },
+                      );
+                    }
+                  },
+                );
+              }
+            },
+                btnColor: HexColor("#00347D"),
+                borderColor: Colors.white,
+                txtColor: Colors.white,
+                borderRadius: 10,
+                width: 300),
           ),
           const SizedBox(
             height: 20,
@@ -224,7 +223,8 @@ class _LoginState extends State<Login> {
             child: RichText(
                 text: TextSpan(
                     text: 'Don\'t have an account? ',
-                    style: const TextStyle(color: Colors.grey, fontSize: 16),
+                    style:
+                        const TextStyle(color: Colors.blueGrey, fontSize: 16),
                     children: <TextSpan>[
                   TextSpan(
                       text: 'SignUp',

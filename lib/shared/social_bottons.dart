@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:snippet_coder_utils/hex_color.dart';
 
 class SocialBottons extends StatelessWidget {
   const SocialBottons({super.key});
@@ -14,10 +15,10 @@ class SocialBottons extends StatelessWidget {
           IconButton(
               color: Colors.white,
               onPressed: () {},
-              icon: const Icon(
+              icon: Icon(
                 (Bootstrap.facebook),
                 size: 44,
-                // color: Color.fromARGB(255, 58, 86, 247),
+                color: HexColor("#00347D"),
               )),
           const SizedBox(
             width: 8,

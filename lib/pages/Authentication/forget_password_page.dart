@@ -2,8 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
-import 'package:zootopia/pages/register_page.dart';
-import 'package:zootopia/pages/reset_password_page.dart';
+import 'package:zootopia/pages/Authentication/otp_page.dart';
+import 'package:zootopia/pages/Authentication/register_page.dart';
 import 'package:zootopia/shared/header.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -12,6 +12,7 @@ class ForgetPassword extends StatefulWidget {
   @override
   State<ForgetPassword> createState() => _ForgetPasswordState();
 }
+
 String? email;
 
 class _ForgetPasswordState extends State<ForgetPassword> {
@@ -19,7 +20,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: HexColor("#283B71"),
+        backgroundColor: Color.fromRGBO(250, 192, 113, 1),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -29,11 +30,11 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               const SizedBox(
                 height: 40,
               ),
-              const Center(
+              Center(
                 child: Text(
                   'Forget Password',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: HexColor("#00347D"),
                       fontSize: 25,
                       fontWeight: FontWeight.bold),
                 ),
@@ -45,20 +46,20 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 child: Text(
                   'Enter your email and we will send you a link\n to reset your password',
                   style: TextStyle(
-                      color: Colors.grey,
+                      color: Colors.blueGrey,
                       fontSize: 15,
                       fontWeight: FontWeight.w500),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 25,
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(right: 180),
                 child: Text(
                   'Email Address',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: HexColor("#00347D"),
                       fontSize: 18,
                       fontWeight: FontWeight.w600),
                 ),
@@ -67,26 +68,29 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 height: 20,
               ),
               FormHelper.inputFieldWidget(
-                  context, 'Enter your email', 'Enter your email',
+                  context,
+                  'Enter your email',
+                  'Enter your email',
                   (onValidateVal) {
-                if (onValidateVal.isEmpty) {
-                  return 'Username can\'t be empty.';
-                }
-          
-                return null;
-              }, (onSavedVal) {},
-              onChange: (value) {
+                    if (onValidateVal.isEmpty) {
+                      return 'Username can\'t be empty.';
+                    }
+
+                    return null;
+                  },
+                  (onSavedVal) {},
+                  onChange: (value) {
                     setState(() {
                       email = value;
                     });
                   },
                   initialValue: "",
                   obscureText: false,
-                  borderFocusColor: Colors.white,
-                  prefixIconColor: Colors.white.withOpacity(0.7),
-                  borderColor: Colors.white,
-                  textColor: Colors.white,
-                  hintColor: Colors.white,
+                  borderFocusColor: HexColor("#00347D"),
+                  prefixIconColor: HexColor("#00347D"),
+                  borderColor: HexColor("#00347D"),
+                  textColor: HexColor("#00347D"),
+                  hintColor: HexColor("#00347D"),
                   borderRadius: 10,
                   prefixIcon: const Icon(Icons.email),
                   showPrefixIcon: true),
@@ -99,11 +103,11 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ResetPassword(),
+                        builder: (context) => const OTPForm(),
                       ));
                 },
                 width: 300,
-                btnColor: HexColor("283B71"),
+                btnColor: HexColor("#00347D"),
                 borderColor: Colors.white,
                 txtColor: Colors.white,
                 borderRadius: 10,
@@ -115,7 +119,8 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 child: RichText(
                     text: TextSpan(
                         text: 'Don\'t have an account? ',
-                        style: const TextStyle(color: Colors.grey, fontSize: 16),
+                        style: const TextStyle(
+                            color: Colors.blueGrey, fontSize: 16),
                         children: [
                       TextSpan(
                           text: 'SignUp',

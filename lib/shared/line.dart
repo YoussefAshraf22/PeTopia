@@ -40,7 +40,6 @@ class Line extends StatelessWidget {
                   thickness: 0.3,
                 ),
               ),
-              
             ],
           ),
         )),

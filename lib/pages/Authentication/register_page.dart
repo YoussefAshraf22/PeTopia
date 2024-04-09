@@ -5,7 +5,6 @@ import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
 import 'package:zootopia/config.dart';
 import 'package:zootopia/models/register_request_model.dart';
-import 'package:zootopia/pages/login.dart';
 import 'package:zootopia/services/api_service.dart';
 import 'package:zootopia/shared/header.dart';
 import 'package:zootopia/shared/line.dart';
@@ -38,10 +37,10 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: HexColor("#283B71"),
+        backgroundColor: Color.fromRGBO(250, 192, 113, 1),
         body: ProgressHUD(
           inAsyncCall: isAPICallProcess,
-          opacity: 0.3,
+          // opacity: 0.3,
           key: UniqueKey(),
           child: Form(
             key: globalFormKey,
@@ -61,12 +60,12 @@ class _RegisterPageState extends State<RegisterPage> {
           Header(
             img: "assets/images/cover.jpeg",
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(left: 20, bottom: 30, top: 50),
             child: Text(
               'SignUp',
               style: TextStyle(
-                  color: Colors.white,
+                  color: HexColor("#00347D"),
                   fontSize: 30,
                   fontWeight: FontWeight.bold),
             ),
@@ -91,11 +90,11 @@ class _RegisterPageState extends State<RegisterPage> {
             showPrefixIcon: true,
             initialValue: "",
             obscureText: false,
-            borderFocusColor: Colors.white,
-            prefixIconColor: Colors.white.withOpacity(0.6),
-            borderColor: Colors.white,
-            textColor: Colors.white,
-            hintColor: Colors.white,
+            borderFocusColor: HexColor("#00347D"),
+            prefixIconColor: HexColor("#00347D"),
+            borderColor: HexColor("#00347D"),
+            textColor: HexColor("#00347D"),
+            hintColor: HexColor("#00347D"),
             borderRadius: 10,
           ),
           const SizedBox(
@@ -121,11 +120,11 @@ class _RegisterPageState extends State<RegisterPage> {
             showPrefixIcon: true,
             initialValue: "",
             obscureText: false,
-            borderFocusColor: Colors.white,
-            prefixIconColor: Colors.white.withOpacity(0.6),
-            borderColor: Colors.white,
-            textColor: Colors.white,
-            hintColor: Colors.white,
+            borderFocusColor: HexColor("#00347D"),
+            prefixIconColor: HexColor("#00347D"),
+            borderColor: HexColor("#00347D"),
+            textColor: HexColor("#00347D"),
+            hintColor: HexColor("#00347D"),
             borderRadius: 10,
           ),
           const SizedBox(
@@ -157,17 +156,17 @@ class _RegisterPageState extends State<RegisterPage> {
                 },
                 icon: Icon(
                   hidePassword ? Icons.visibility_off : Icons.visibility,
-                  color: Colors.white.withOpacity(0.7),
+                  color: HexColor("#00347D"),
                 )),
-            borderFocusColor: Colors.white,
-            prefixIconColor: Colors.white.withOpacity(0.6),
-            borderColor: Colors.white,
-            textColor: Colors.white,
-            hintColor: Colors.white,
+            borderFocusColor: HexColor("#00347D"),
+            prefixIconColor: HexColor("#00347D"),
+            borderColor: HexColor("#00347D"),
+            textColor: HexColor("#00347D"),
+            hintColor: HexColor("#00347D"),
             borderRadius: 10,
           ),
           const SizedBox(
-            height: 10,
+            height: 25,
           ),
           Center(
             child: FormHelper.submitButton('Register', () {
@@ -205,7 +204,7 @@ class _RegisterPageState extends State<RegisterPage> {
             },
                 borderColor: Colors.white,
                 borderRadius: 10,
-                btnColor: HexColor('#283B71'),
+                btnColor: HexColor("#00347D"),
                 width: 300),
           ),
           const SizedBox(
@@ -215,7 +214,8 @@ class _RegisterPageState extends State<RegisterPage> {
             child: RichText(
                 text: TextSpan(
                     text: 'Have an account? ',
-                    style: const TextStyle(color: Colors.grey, fontSize: 16),
+                    style:
+                        const TextStyle(color: Colors.blueGrey, fontSize: 16),
                     children: [
                   TextSpan(
                       text: 'Login',
@@ -226,11 +226,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Login(),
-                              ));
+                          Navigator.pushNamed(
+                              context, arguments: context, '/login');
                         })
                 ])),
           ),
