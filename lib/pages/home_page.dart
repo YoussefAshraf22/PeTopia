@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
-import 'package:zootopia/pages/Authentication/login.dart';
-import 'package:zootopia/pages/Authentication/register_page.dart';
+import 'package:zootopia/pages/Chat/chat_page.dart';
+import 'package:zootopia/pages/Home/feed_page.dart';
+import 'package:zootopia/pages/Store/store_page.dart';
 import 'package:zootopia/pages/profile/profile_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,11 +15,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int selected = 0;
   final pages = [
-    const Center(
-      child: Text('Home'),
-    ),
-    const Login(),
-    const RegisterPage(),
+    const FeedPage(),
+    const StorePage(),
+    const ChatPage(),
     const ProfilePage(),
   ];
   @override
@@ -30,9 +29,9 @@ class _HomePageState extends State<HomePage> {
       // // ),
       body: pages[selected],
       bottomNavigationBar: NavigationBar(
-        indicatorColor: Color.fromRGBO(254, 169, 40, 0.13),
+        indicatorColor: const Color.fromRGBO(254, 169, 40, 0.13),
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-        backgroundColor: Color.fromRGBO(250, 192, 113, 1),
+        backgroundColor: const Color.fromRGBO(250, 192, 113, 1),
         height: 60,
         selectedIndex: selected,
         onDestinationSelected: (selected) {

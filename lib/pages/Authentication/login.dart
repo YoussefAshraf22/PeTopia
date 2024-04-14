@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
-import 'package:zootopia/config.dart';
-import 'package:zootopia/models/login_request_model.dart';
 import 'package:zootopia/pages/Authentication/forget_password_page.dart';
 import 'package:zootopia/pages/Authentication/register_page.dart';
-import 'package:zootopia/services/api_service.dart';
 import 'package:zootopia/shared/header.dart';
 import 'package:zootopia/shared/line.dart';
 import 'package:zootopia/shared/social_bottons.dart';
@@ -171,44 +168,10 @@ class _LoginState extends State<Login> {
           const SizedBox(
             height: 30,
           ),
+
           Center(
-            child: FormHelper.submitButton("Login", () {
-              if (validateAndSave()) {
-                setState(() {
-                  isAPICallProcess = true;
-                });
-
-                LoginRequestModel model = LoginRequestModel(
-                  username: userName,
-                  password: userPassword,
-                );
-
-                APIService.login(model).then(
-                  (response) {
-                    setState(() {
-                      isAPICallProcess = false;
-                    });
-
-                    if (response) {
-                      Navigator.pushNamedAndRemoveUntil(
-                        context,
-                        '/home',
-                        (route) => false,
-                      );
-                    } else {
-                      FormHelper.showSimpleAlertDialog(
-                        context,
-                        Config.appName,
-                        "Invalid Username/Password !!",
-                        "OK",
-                        () {
-                          Navigator.of(context).pop();
-                        },
-                      );
-                    }
-                  },
-                );
-              }
+            child: FormHelper.submitButton('Login', () {
+              Navigator.pushNamed(context, '/home');
             },
                 btnColor: HexColor("#00347D"),
                 borderColor: Colors.white,
@@ -216,6 +179,52 @@ class _LoginState extends State<Login> {
                 borderRadius: 10,
                 width: 300),
           ),
+
+          // Center(
+          //   child: FormHelper.submitButton("Login", () {
+          //     if (validateAndSave()) {
+          //       setState(() {
+          //         isAPICallProcess = true;
+          //       });
+          //
+          //       LoginRequestModel model = LoginRequestModel(
+          //         username: userName,
+          //         password: userPassword,
+          //       );
+          //
+          //       APIService.login(model).then(
+          //         (response) {
+          //           setState(() {
+          //             isAPICallProcess = false;
+          //           });
+          //
+          //           if (response) {
+          //             Navigator.pushNamedAndRemoveUntil(
+          //               context,
+          //               '/home',
+          //               (route) => false,
+          //             );
+          //           } else {
+          //             FormHelper.showSimpleAlertDialog(
+          //               context,
+          //               Config.appName,
+          //               "Invalid Username/Password !!",
+          //               "OK",
+          //               () {
+          //                 Navigator.of(context).pop();
+          //               },
+          //             );
+          //           }
+          //         },
+          //       );
+          //     }
+          //   },
+          //       btnColor: HexColor("#00347D"),
+          //       borderColor: Colors.white,
+          //       txtColor: Colors.white,
+          //       borderRadius: 10,
+          //       width: 300),
+          // ),
           const SizedBox(
             height: 20,
           ),
