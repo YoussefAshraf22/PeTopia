@@ -25,8 +25,8 @@ class _ProfilePageState extends State<ProfilePage> {
   File? selectedCover;
   @override
   Widget build(BuildContext context) {
-    String _name = Provider.of<ProfileState>(context).name;
-    String _email = Provider.of<ProfileState>(context).email;
+    String name = Provider.of<ProfileState>(context).name;
+    String email = Provider.of<ProfileState>(context).email;
     return SafeArea(
       child: Scaffold(
         // appBar: AppBar(
@@ -148,14 +148,14 @@ class _ProfilePageState extends State<ProfilePage> {
                       : Column(
                           children: [
                             Text(
-                              _name,
+                              name,
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             Text(
-                              _email,
+                              email,
                               style: const TextStyle(
                                 fontSize: 15,
                                 color: Colors.blueGrey,
@@ -167,11 +167,11 @@ class _ProfilePageState extends State<ProfilePage> {
                               onPressed: () {
                                 setState(() {
                                   _isEditing = true;
-                                  _nameController.text = _name;
-                                  _emailController.text = _email;
+                                  _nameController.text = name;
+                                  _emailController.text = email;
                                 });
                               },
-                              child: Text('Edit'),
+                              child: const Text('Edit'),
                             ),
                           ],
                         ),
@@ -197,7 +197,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   ProfileMenu(
                     icon: Icons.logout,
                     title: 'Logout',
-                    onPress: () {},
+                    onPress: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        '/',
+                        (route) => false,
+                      );
+                    },
                     textColor: Colors.red,
                   ),
                 ],
