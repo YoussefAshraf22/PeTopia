@@ -23,7 +23,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            backgroundColor: Color.fromRGBO(250, 192, 113, 1),
+            backgroundColor: const Color.fromRGBO(250, 192, 113, 1),
             body: SingleChildScrollView(
               child: Column(children: [
                 Header(
@@ -53,11 +53,11 @@ class _ResetPasswordState extends State<ResetPassword> {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: 180),
+                  padding: const EdgeInsets.only(right: 180),
                   child: Text(
                     'New Password',
                     style: TextStyle(
