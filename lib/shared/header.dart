@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class Header extends StatelessWidget {
   String? img;
-   Header({required this.img});
+  Header({super.key, required this.img});
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +29,8 @@ class Header extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: Image.asset(
             img!,
-            fit: BoxFit.fitWidth,
-            width: 355,
+            fit: BoxFit.cover,
+            width: 375,
             height: 180,
           ),
         )
