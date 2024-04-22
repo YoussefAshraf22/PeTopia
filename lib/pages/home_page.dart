@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
         },
         destinations: [
           NavigationDestination(
-            icon: Icon(Icons.home_outlined),
+            icon: const Icon(Icons.home_outlined),
             label: 'Home',
             selectedIcon: Icon(
               applyTextScaling: false,
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           NavigationDestination(
-            icon: Icon(Icons.shopping_cart_outlined),
+            icon: const Icon(Icons.shopping_cart_outlined),
             label: 'Store',
             selectedIcon: Icon(
               Icons.shopping_cart_rounded,
@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           NavigationDestination(
-            icon: Icon(Icons.chat_outlined),
+            icon: const Icon(Icons.chat_outlined),
             label: 'Chat',
             selectedIcon: Icon(
               Icons.chat_rounded,
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           NavigationDestination(
-            icon: Icon(Icons.person_3_outlined),
+            icon: const Icon(Icons.person_3_outlined),
             label: 'Profile',
             selectedIcon: Icon(
               Icons.person_3_rounded,
