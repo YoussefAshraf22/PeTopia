@@ -13,7 +13,7 @@ class OTPForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(250, 192, 113, 1),
+        backgroundColor: const Color.fromRGBO(250, 192, 113, 1),
         body: SingleChildScrollView(
           child: Column(
             children: [

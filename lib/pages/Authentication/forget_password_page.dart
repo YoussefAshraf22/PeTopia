@@ -20,7 +20,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(250, 192, 113, 1),
+        backgroundColor: const Color.fromRGBO(250, 192, 113, 1),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -51,11 +51,11 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       fontWeight: FontWeight.w500),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Padding(
-                padding: EdgeInsets.only(right: 180),
+                padding: const EdgeInsets.only(right: 180),
                 child: Text(
                   'Email Address',
                   style: TextStyle(

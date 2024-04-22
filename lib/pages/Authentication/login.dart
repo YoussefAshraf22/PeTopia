@@ -35,7 +35,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(250, 192, 113, 1),
+        backgroundColor: const Color.fromRGBO(250, 192, 113, 1),
         body: ProgressHUD(
           //check from the API call
           inAsyncCall: isAPICallProcess,
@@ -61,7 +61,7 @@ class _LoginState extends State<Login> {
             img: "assets/images/cover.jpeg",
           ),
           Padding(
-            padding: EdgeInsets.only(left: 20, bottom: 30, top: 50),
+            padding: const EdgeInsets.only(left: 20, bottom: 30, top: 50),
             child: Text(
               "Login",
               style: TextStyle(
