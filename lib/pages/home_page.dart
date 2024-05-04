@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             selectedIcon: Icon(
               applyTextScaling: false,
               fill: 0,
-              Icons.home_filled,
+              Icons.home,
               color: HexColor("#00347D"),
             ),
           ),

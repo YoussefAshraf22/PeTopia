@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snippet_coder_utils/hex_color.dart';
 import 'package:zootopia/pages/Chat/chat_user_list.dart';
 
 import '../../models/chat_users.dart';
@@ -57,15 +58,16 @@ class _ChatPageState extends State<ChatPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Chats',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold),
+                  Text(
+                    'Chatting Room',
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 26,
+                        color: HexColor("#00347D")),
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                     decoration: BoxDecoration(
                         color: const Color.fromRGBO(250, 192, 113, 1),
                         borderRadius: BorderRadius.circular(5)),
@@ -104,6 +106,7 @@ class _ChatPageState extends State<ChatPage> {
                       color: Colors.grey,
                       size: 20,
                     ),
+                    border: InputBorder.none,
                     filled: true,
                     fillColor: Colors.grey.shade100,
                     contentPadding: const EdgeInsets.all(8),
@@ -112,15 +115,18 @@ class _ChatPageState extends State<ChatPage> {
                         borderSide: const BorderSide(color: Colors.grey))),
               ),
             ),
-            ListView.builder(
-              itemBuilder: (context, index) => ChatUserList(
-                  text: chatUsers[index].text!,
-                  secondaryText: chatUsers[index].secondaryText,
-                  image: chatUsers[index].image!,
-                  time: chatUsers[index].time),
-              itemCount: chatUsers.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView.builder(
+                itemBuilder: (context, index) => ChatUserList(
+                    text: chatUsers[index].text!,
+                    secondaryText: chatUsers[index].secondaryText,
+                    image: chatUsers[index].image!,
+                    time: chatUsers[index].time),
+                itemCount: chatUsers.length,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+              ),
             )
           ],
         ),
