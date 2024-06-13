@@ -5,6 +5,7 @@ import 'package:zootopia/pages/Home/post_details.dart';
 import 'package:zootopia/pages/Search/searchPage.dart';
 import 'package:zootopia/shared/postContainer.dart';
 
+List<PostModel> postModel = [];
 
 class FeedPage extends StatefulWidget {
   const FeedPage({super.key});
@@ -16,7 +17,7 @@ class FeedPage extends StatefulWidget {
 class _FeedPageState extends State<FeedPage> {
   @override
   Widget build(BuildContext context) {
-    List<PostModel> postModel = [
+    postModel = [
       PostModel(
           userName: 'Dr.Hend',
           time: '2 Min ago',
@@ -105,6 +106,7 @@ class _FeedPageState extends State<FeedPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             PostContainer(
+              height: 160,
               onPost: addNewPost,
             ),
             ListView.builder(
