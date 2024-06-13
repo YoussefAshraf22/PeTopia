@@ -3,7 +3,8 @@ import 'package:zootopia/models/post_model.dart';
 
 class PostContainer extends StatefulWidget {
   final Function(PostModel) onPost;
-  const PostContainer({super.key, required this.onPost});
+  double height;
+  PostContainer({super.key, required this.onPost, required this.height});
 
   @override
   _PostContainerState createState() => _PostContainerState();
@@ -58,6 +59,7 @@ class _PostContainerState extends State<PostContainer> {
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       child: Container(
         width: size.width,
+        height: widget.height,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20), color: Colors.white),
         child: Column(
@@ -101,82 +103,85 @@ class _PostContainerState extends State<PostContainer> {
                 leading: const Icon(Icons.location_on),
                 title: Text(_location),
               ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Row(
-                    children: [
-                      Row(
-                        children: [
-                          IconButton(
-                            icon: const Icon(
-                              Icons.photo,
-                              color: Colors.green,
+            const Spacer(),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0,),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      children: [
+                        Row(
+                          children: [
+                            IconButton(
+                              icon: const Icon(
+                                Icons.photo,
+                                color: Colors.green,
+                              ),
+                              onPressed: _addImage,
                             ),
-                            onPressed: _addImage,
+                            const Text('Photo'),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                          icon: const Icon(
+                            Icons.videocam,
+                            color: Colors.blue,
                           ),
-                          const Text('Photo'),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                        icon: const Icon(
-                          Icons.videocam,
-                          color: Colors.blue,
+                          onPressed: _addVideo,
                         ),
-                        onPressed: _addVideo,
-                      ),
-                      const Text('Video'),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                        icon: const Icon(
-                          Icons.location_on,
-                          color: Colors.red,
+                        const Text('Video'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                          icon: const Icon(
+                            Icons.location_on,
+                            color: Colors.red,
+                          ),
+                          onPressed: _addLocation,
                         ),
-                        onPressed: _addLocation,
-                      ),
-                      const Text(
-                        'Location',
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                      height: 35,
-                      width: 60,
-                      decoration: BoxDecoration(
-                          color: const Color.fromRGBO(250, 192, 113, 1),
-                          borderRadius: BorderRadius.circular(8)),
-                      child: MaterialButton(
-                        onPressed: () {
-                          widget.onPost(
-                            PostModel(
-                              userName: 'User',
-                              time: 'Just Now',
-                              content: _postText,
-                              userImg: 'assets/images/woman.png',
-                              likes: 0,
-                              comments: 0,
-                            ),
-                          );
-                          _textEditingController.clear();
-                        },
-                        child: const Text(
-                          'Post',
-                          style: TextStyle(color: Colors.white),
+                        const Text(
+                          'Location',
                         ),
-                      ))
-                ],
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                        height: 35,
+                        width: 60,
+                        decoration: BoxDecoration(
+                            color: const Color.fromRGBO(250, 192, 113, 1),
+                            borderRadius: BorderRadius.circular(8)),
+                        child: MaterialButton(
+                          onPressed: () {
+                            widget.onPost(
+                              PostModel(
+                                userName: 'User',
+                                time: 'Just Now',
+                                content: _postText,
+                                userImg: 'assets/images/woman.png',
+                                likes: 0,
+                                comments: 0,
+                              ),
+                            );
+                            _textEditingController.clear();
+                          },
+                          child: const Text(
+                            'Post',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ))
+                  ],
+                ),
               ),
             ),
           ],
