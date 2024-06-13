@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/hex_color.dart';
 import 'package:zootopia/pages/Chat/chat_page.dart';
+import 'package:zootopia/pages/Home/add_post.dart';
 import 'package:zootopia/pages/Home/feed_page.dart';
 import 'package:zootopia/pages/Store/store_page.dart';
 import 'package:zootopia/pages/profile/profile_page.dart';
+import 'package:zootopia/shared/custom_bottom.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,10 +26,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      // appBar: AppBar(
-      // //   title: const Text('Zootopia'),
-      // // ),
-      body: pages[selected],
+      body: IndexedStack(
+        index: selected,
+        children: pages,
+      ),
       bottomNavigationBar: NavigationBar(
         indicatorColor: const Color.fromRGBO(254, 169, 40, 0.13),
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
@@ -76,6 +78,22 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      floatingActionButton: selected != 3
+          ? CustomBottom(
+              child: const Icon(
+                Icons.add_circle_outline,
+                size: 23,
+                color: Colors.white,
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AddPost(),
+                    ));
+              })
+          : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     ));
   }
 }
