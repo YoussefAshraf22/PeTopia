@@ -8,6 +8,7 @@ class ApiKey {
   static String errorMessage = "ErrorMessage";
   static String email = "email";
   static String password = "password";
+  static String message = 'message';
   static String token = "token";
   static String id = "id";
 }
