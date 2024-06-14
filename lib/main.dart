@@ -2,9 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 import 'package:snippet_coder_utils/hex_color.dart';
 import 'package:zootopia/Core/API/dio_consumer.dart';
+import 'package:zootopia/Core/Cache/cache_helper.dart';
 import 'package:zootopia/Cubit/user_cubit.dart';
+import 'package:zootopia/Core/API/http_consumer.dart';
 import 'package:zootopia/pages/Authentication/login.dart';
 import 'package:zootopia/pages/Authentication/login2.dart';
 import 'package:zootopia/pages/Authentication/register_page.dart';
@@ -12,8 +15,14 @@ import 'package:zootopia/pages/home_page.dart';
 import 'package:zootopia/pages/profile/profile_state.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  CacheHelper().init();
+  final apiConsumer = HttpConsumer(
+      client: http.Client(), loggingInterceptor: LoggingInterceptor());
+
   runApp(BlocProvider(
     create: (context) => UserCubit(DioConsumer(dio: Dio())),
+    // create: (context) => UserCubit(apiConsumer),
     child: const MyApp(),
   ));
 }
@@ -27,7 +36,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => ProfileState(),
       child: MaterialApp(
-        title: 'Petopia',
+        title: 'PeTopia',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: HexColor("#00347D")),
