@@ -78,7 +78,7 @@ class _FeedPageState extends State<FeedPage> {
         title: Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Text(
-            'Zootopia',
+            'PeTopia',
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 26,
