@@ -10,7 +10,7 @@ class SearchPage extends StatelessWidget {
         child: Scaffold(
       appBar: AppBar(
         title: Text(
-          'Zootopia',
+          'Search',
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 25,
